@@ -6,15 +6,42 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>For Thae Thae by yours!</h1>
-    <div id="container"></div> </body>
+    <h1>သဲသဲ ပုံတွေ resolution ‌ေရွးကြည့်</h1>
 
-<script>
-    let container = document.getElementById("container");
-    for (let i = 0; i < 500; i++) {
-        let h3 = document.createElement("h3");
-        h3.textContent = "အရမ်းမူးအောင် မသောက်နဲ့နော် ဂရုစိုက်ပြန်နော် အပြန်ကျ သူငယ်ချင်းတွေနဲ့ အတူတူပြန်နော် ချစ်တယ်ချစ်တယ်"; 
-        container.appendChild(h3);
-    }
-</script>
+    <div>
+        <label for="world">Choose pixel:</label>
+
+        <select name="world" id="world">
+          <option value="144p">144p</option>
+          <option value="240p">240p</option>
+          <option value="480p">480p</option>
+          <option value="720p">720p</option>
+          <option value="1080p">1080p</option>
+        </select>
+
+        <img id="worldImage" src="https://media.istockphoto.com/id/1335407682/vector/world-earth-globe-eight-bit-pixel-art-game-icon.jpg?s=612x612&w=0&k=20&c=_HsPwOfS88zFG4hUCWoLNSJ-7ih6mgdtILUBL76ClaE=" width="100" height="100" alt="World Image">
+    </div>
+
+    <div id="container"></div>
+
+    <script>
+        const worldSelect = document.getElementById("world");
+        const worldImage = document.getElementById("worldImage");
+
+        // Map of pixel values to image URLs (replace with actual images if needed)
+        const imageMap = {
+            "144p": "https://media.istockphoto.com/id/1335407682/vector/world-earth-globe-eight-bit-pixel-art-game-icon.jpg?s=612x612&w=0&k=20&c=_HsPwOfS88zFG4hUCWoLNSJ-7ih6mgdtILUBL76ClaE=",
+            "240p": "https://static.vecteezy.com/system/resources/previews/009/877/882/non_2x/pixel-art-moon-crescent-moon-icon-for-8bit-game-on-white-background-vector.jpg",
+            "480p": "https://thumbs.dreamstime.com/b/pixel-art-design-earth-vector-illustration-pixel-art-design-earth-vector-illustration-colorful-planet-earth-pixel-style-137619909.jpg",
+            "720p": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPkEBu4mBStvBEjFcNT7XZT-YNWB8fLc632g&s",
+            "1080p": "E:\for haney\img\photo_2025-02-28_21-39-58.jpg"
+        };
+
+        // Event listener to update image when selection changes
+        worldSelect.addEventListener("change", function() {
+            const selectedValue = worldSelect.value;
+            worldImage.src = imageMap[selectedValue];
+        });
+    </script>
+</body>
 </html>
